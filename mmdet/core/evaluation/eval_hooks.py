@@ -14,7 +14,7 @@ from torch.utils.data import Dataset
 from .coco_utils import results2json, fast_eval_recall
 from .mean_ap import eval_map
 from .eval_mr import COCOeval as COCOMReval
-from tools.ECPB.eval import eval
+#from tools.ECPB.eval import eval
 from mmdet import datasets
 
 
@@ -207,7 +207,8 @@ class CocoDistEvalECPMRHook(DistEvalHook):
             json.dump(frame, open(dest, 'w'), indent=1)
             i += 1
 
-        res = eval(self.day, self.mode)
+        #res = eval(self.day, self.mode)
+        res={}
         for key, value in res.items():
             runner.log_buffer.output[key] = value
 
